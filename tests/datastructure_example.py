@@ -1,0 +1,4 @@
+from datastructure_collection import BinarySearchTree
+from datastructure_collection import HashMap
+from datastructure_collection import LinkedList
+
