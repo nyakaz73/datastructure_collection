@@ -47,6 +47,7 @@ The Binary Search Tree operations and the time complexities are shown in the tab
 |                           |               |               |
 | tree.add(key, value)      | O(logN)       | O(N)          | 
 | tree.remove(key)          | O(logN)       | O(N)          |
+| tree.valueOf(key)         | O(logN)       | O(N)          |
 | tree.isEmpty()            | O(1)          | O(1)          |
 | tree.minValue()           | O(logN)       | O(N)          |
 | tree.maxValue()           | O(logN)       | O(N)          |
@@ -54,7 +55,9 @@ The Binary Search Tree operations and the time complexities are shown in the tab
 | x in tree                 | O(logN)       | O(N)          |
 | traversal                 | O(N)          | O(N)          |
 
-As seen from the 
+As seen from the table above the Binary Search Tree has an advantage over a Linear List in terms of its searching mechanism the the tree will be to somewhat sorted where the left elements of a node are less that the elements of a right node, thus giving it a Best case runtime of O(logN) as compared to a List search of O(N).
+* **NB** The add,remove,minValue,maxValue and __contains__ ie "in", valueOf operators uses the search mechanism to locate the target.
+
 ## Example BinarySearchTree
 ```python
 
@@ -70,6 +73,8 @@ tree.add(7,"Apple")
 tree.add(2,"Tomato")
 
 
+for i in tree:
+    print(i) #Prints the sorted List of tuples contaiing the key and value
 
 ```
 
