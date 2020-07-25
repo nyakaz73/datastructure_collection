@@ -9,11 +9,11 @@ The Pypi [datastructer_collection](https://github.com/nyakaz73/datastructure_col
 ## Getting Started
 The datastructure_collection has three data structure classes :
 
-* 1. [BinarySearchTree]
+* 1. [BinarySearchTree](https://github.com/nyakaz73/datastructure_collection.git)
 
-* 2. [HashMap]
+* 2. [HashMap](https://github.com/nyakaz73/datastructure_collection.git)
 
-* 3. [LinkedList]
+* 3. [LinkedList](https://github.com/nyakaz73/datastructure_collection.git)
 
 I Look forward to add more datastructures in the future.
 
