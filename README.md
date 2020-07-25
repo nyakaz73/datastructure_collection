@@ -39,13 +39,39 @@ from datastructure_collection import LinkedList
 ```
 
 ### Binary Search Tree
-The Binary Search Tree operations and the time complexities are shown in the table below
+The Binary Search Tree operations and the time complexities are shown in the table below:
 
-| Operation        | Worst Case    |
-| -------------    |:-------------:|
-| add(key, value)  | O(N)          | 
-| remove(key)      | O(N)          | 
-| isEmpty()        | O(1)          |
+| Operation                 | Best Case     |  Worst Case   |  
+| -------------             |:-------------:|:-------------:|
+| tree = BinarySearchTree() | O(1)          | O(1)          |
+|                           |               |               |
+| tree.add(key, value)      | O(logN)       | O(N)          | 
+| tree.remove(key)          | O(logN)       | O(N)          |
+| tree.isEmpty()            | O(1)          | O(1)          |
+| tree.minValue()           | O(logN)       | O(N)          |
+| tree.maxValue()           | O(logN)       | O(N)          |
+| n = len(tree)             | O(1)          | O(1)          |
+| x in tree                 | O(logN)       | O(N)          |
+| traversal                 | O(N)          | O(N)          |
+
+As seen from the 
+## Example BinarySearchTree
+```python
+
+#import the BinarySearchTree Class
+from datastructure_collection import BinarySearchTree
+
+#Instantiate BinarySearchTree object
+tree = BinarySearchTree
+
+tree.add(1,"Orange")
+tree.add(4,"Banana")
+tree.add(7,"Apple")
+tree.add(2,"Tomato")
+
+
+
+```
 
 
 ### Pull Requests
