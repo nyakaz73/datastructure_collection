@@ -38,7 +38,14 @@ from datastructure_collection import HashMap
 from datastructure_collection import LinkedList
 ```
 
+### Binary Search Tree
+The Binary Search Tree operations and the time complexities are shown in the table below
 
+| Operation        | Worst Case           |
+| ------------- |:-------------:| -----:|
+| add(key, value)      | O(N) | 
+| remove(key)      | O(N)      | 
+| isEmpty() | O(1)      |
 
 
 ### Pull Requests
