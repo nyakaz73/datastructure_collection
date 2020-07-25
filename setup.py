@@ -11,7 +11,7 @@ setuptools.setup(
     description="A DataStructure collection written in Pyhton which helps developers and big-data scientists in implementing fast and efficient algorithms",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url=" https://github.com/nyakaz73/datastructure_collection.git",
+    url="https://github.com/nyakaz73/datastructure_collection.git",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
