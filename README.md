@@ -21,7 +21,7 @@ I Look forward to add more datastructures in the future.
 
 Run the following to install package :
 
-```python
+```bash
 pip install datastructure_collection
 ```
 ## Usage
@@ -55,8 +55,11 @@ The Binary Search Tree operations and the time complexities are shown in the tab
 | x in tree                 | O(logN)       | O(N)          |
 | traversal                 | O(N)          | O(N)          |
 
-As seen from the table above the Binary Search Tree has an advantage over a Linear List in terms of its searching mechanism the the tree will be to somewhat sorted where the left elements of a node are less that the elements of a right node, thus giving it a Best case runtime of O(logN) as compared to a List search of O(N).
+As seen from the table above the Binary Search Tree has an advantage over a Linear List in terms of its searching mechanism the tree will be to somewhat sorted where the left elements of a node are less that the elements of a right node, thus giving it a Best case runtime of O(logN) as compared to a List search of O(N).
+The Worst Case of a Binary Search Tree O(N) occurs when the elements of the tree are ordered linearly ie (elements are inserted with increasing order)
 * **NB** The add,remove,minValue,maxValue and __contains__ ie "in", valueOf operators uses the search mechanism to locate the target.
+
+The Worst Case of a BinarySearchTree can however be improved by implementing a **Balanced Search Tree** with datastructures like **(AVL trees, splay trees, and red-black trees)**  which i however shall add in the future.
 
 ## Example BinarySearchTree
 ```python
@@ -65,7 +68,7 @@ As seen from the table above the Binary Search Tree has an advantage over a Line
 from datastructure_collection import BinarySearchTree
 
 #Instantiate BinarySearchTree object
-tree = BinarySearchTree
+tree = BinarySearchTree()
 
 tree.add(1,"Orange")
 tree.add(4,"Banana")
@@ -76,8 +79,12 @@ tree.add(2,"Tomato")
 for i in tree:
     print(i) #Prints the sorted List of tuples contaiing the key and value
 
-```
+tree.remove(4) #this removes the Banana node from the tree
+print(len(tree)) #this returns a length of 3 since the Banana node was removed
 
+```
+### Hash Map
+The HashMap is the most commonly used data structure in solving  big data problems. 
 
 ### Pull Requests
 I Welcome and i encourage all Pull Requests
