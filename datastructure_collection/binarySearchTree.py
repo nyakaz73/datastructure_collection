@@ -187,36 +187,7 @@ class BinarySearchTree:
 
 if __name__ == '__main__':
 
-    from random import randint
-    tree = BinarySearchTree()
-    for _ in range(10):
-        key = randint(0, 10)
-        tree.add(key,key)
-    
-    print(tree)
-    #print(len(tree))
-    print(tree.isEmpty())
-
-    #tree.remove(1)
-    #tree.add(4,18)
-    #print(tree.minValue())
-    #print(tree.maxValue())
-    print('The tree length is',len(tree))
-    
-    count = 0
-    for i in tree:
-        print(i)
-        count +=1
-    print('The count is',count)
-    #print(tree.valueOf(5))
-    print(99 in tree)
-
-    #print(tree[9])
-
-    tree[9] = 'Hello nEW YOURK'
-    print(tree)
-
-    print(9 in tree)
+    pass
 
             
 

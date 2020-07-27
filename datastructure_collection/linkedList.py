@@ -137,24 +137,5 @@ class LinkedList:
         return 'Linked List'
 
 if __name__ == "__main__":
-    linked = LinkedList()
-
-    for _ in range(10):
-        linked.add(_)
-    linked.add(5)
-    linked.remove(5)
-    linked.append(55)
-    linked.append(56)
-    linked.append(7)
-    linked.add(59)
-    linked.append(79)
-    print('List Length: ',len(linked))
-    linked.remove(0)
-    print(linked)
-    print('List Length: ',len(linked))
-
-    for i in linked:
-        print(i)
-    
-    print(77 in linked)
+    pass
 

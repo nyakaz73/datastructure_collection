@@ -12,7 +12,7 @@ class TestHashMap(unittest.TestCase):
         map = HashMap()
         for i in range(100):
             map.add(i,i)
-        self.assertEqual(len(map), 7)
+        self.assertEqual(len(map), 100)
         map[56] = "book"
         self.assertEqual(map.get(56), "book")
         self.assertEqual(map[56], "book")

@@ -63,7 +63,7 @@ class HashMap(MapBase):
         #Probbing for the key Linear Probing
         while self._table[slot] is not None:
             #When Inserting
-            if isInsert and (self._table[slot] is self._EMPTY):
+            if isInsert and (self._table[slot] is None or self._table[slot] is self._EMPTY):
                 #print('Inserting on Empty Location--------------------------------------------------------------------------------')     
                 return slot
             #When Searching
@@ -77,29 +77,32 @@ class HashMap(MapBase):
                 #print('Probing...')
                 #print('Searching for slot for key {}'.format(key))
                 #return self._double_hashing(slot,step)
-                return self._recursive_slot_search(slot,step,key)
+                return self._recursive_slot_search(slot,step,key,isInsert)
                 
         return slot
     
-    def _recursive_slot_search(self, slot,step,key):
+    def _recursive_slot_search(self, slot,step,key,isInsert):
         try:
             double_hash_slot = self._double_hashing(slot,step)
             #print('Dobule hash slot found is',double_hash_slot)
             #print(self._table[double_hash_slot].key)
             #print(self._table[double_hash_slot] is not None)
             if self._table[double_hash_slot] is not None:
-                #print('Continue Searching... slot found is {} with key {}'.format(double_hash_slot, self._table[double_hash_slot].key))
                 '''
                 means the key already exists so override data or return this slot when deleting
                 if key == list(self._table[double_hash_slot])[0]:
                 '''
                 if key == self._table[double_hash_slot].key:
                     return double_hash_slot
-                return self._recursive_slot_search(double_hash_slot,step,key)
+                #print('Continue Searching... slot found is {} with key {}'.format(double_hash_slot, self._table[double_hash_slot].key))
+                return self._recursive_slot_search(double_hash_slot,step,key,isInsert)
             else:
-                #print(double_hash_slot)
                 return double_hash_slot
         except:
+            #print('Out of index')
+            if isInsert:
+                #means its a _rehash so would have to restart the probing
+                return self._recursive_slot_search(0,step,key,isInsert)
             pass
 
     def __contains__(self,key):
@@ -108,21 +111,19 @@ class HashMap(MapBase):
             if self._table[slot].key == key:
                 return True
         return False
-        
+    
     def add(self,key, value):
         slot =  self._hash(key)  #Linear Hashing
         if self._table[slot] is None:
             #print('The prev slot is {} for key {}'.format(slot,key))
             self._table[slot] = _MapEntry(key,value)
             self._count+=1
-            #if self._count == self._maxCount:
-            #    self._rehash()
+            if self._count == self._maxCount:
+                self._rehash()
             return True
         elif self._table[slot] is not None:
             #Prob for the next prob
             #print('The next slot is {} for key  {} '.format(slot,key))
-            #print(self._table)
-            #print('Finding Next Slot')
             #before finding next slot we need to to check if keys are the same 
             #if key in self:
             if key == self._table[slot].key:
@@ -154,21 +155,17 @@ class HashMap(MapBase):
     
     #Rebuidling the HashTable
     def _rehash(self):
-        #print('Rehashing')
         original_table = self._table
         newSize = len(self._table) * 2 + 1 #keep it prime
         self._table = [None] * newSize
-        #print('New table size')
-        #print(self._table)
-        #Modify the Size attributes
         self._count = 0
         self._maxCount = newSize -newSize // 3
 
         #Add keys from original table to new hash table
         for data in original_table:
             if data is not None and data is not self._EMPTY:
-                slot = self._find_slot(key, True)
-                #print('Rehashed slot is {} for key {} for slot {}'.format(slot,key,slot))
+                slot = self._find_slot(data.key, True)
+                #print('Rehashed slot is {} for key {} for slot {}'.format(slot,data.key,slot))
                 #print('Key Value pair {}, {}'.format(data.key,data.value))
                 self._table[slot] = _MapEntry(data.key,data.value) #assigning the key value pair
                 self._count += 1
@@ -241,29 +238,9 @@ class HashMap(MapBase):
 
 
 if __name__ == '__main__':
-    hash = HashMap()
+    pass
 
-    hash.add('man',34)
-    hash.add('person',23)
-    hash.add('women',674)
-    hash.add('camera',5)
-    hash.add('tv',89)
-
-    for i in hash:
-        print('{}: {}'.format(i.key,i.value))
     
-    print(len(hash))
-
-    print(hash.remove('tv'))
-    print(hash.remove('women'))
-    print(hash.remove('man'))
-    hash['women'] = 566
-
-    for i in hash:
-        print('{}: {}'.format(i.key,i.value))
-    print(len(hash))
-
-    print(hash.get('women'))
 
 
 
