@@ -75,21 +75,29 @@ class HashMap(MapBase):
             #When Probing find the next available slot
             else :
                 print('Probing...')
-                return self._double_hashing(slot,step)
-                #return self._recursive_slot_search(slot,step,key)
+                print('Searching for slot for key {}'.format(key))
+                #return self._double_hashing(slot,step)
+                return self._recursive_slot_search(slot,step,key)
                 
         return slot
     
     def _recursive_slot_search(self, slot,step,key):
         try:
             double_hash_slot = self._double_hashing(slot,step)
+            print('Dobule hash slot found is',double_hash_slot)
+            #print(self._table[double_hash_slot].key)
+            #print(self._table[double_hash_slot] is not None)
             if self._table[double_hash_slot] is not None:
-                print('Continue Searching... slot found is {} with key {}'.format(double_hash_slot, list(self._table[double_hash_slot])[0]))
-                #means the key already exists so override data or return this slot when deleting
+                print('Continue Searching... slot found is {} with key {}'.format(double_hash_slot, self._table[double_hash_slot].key))
+                '''
+                means the key already exists so override data or return this slot when deleting
                 if key == list(self._table[double_hash_slot])[0]:
+                '''
+                if key == self._table[double_hash_slot].key:
                     return double_hash_slot
                 return self._recursive_slot_search(double_hash_slot,step,key)
             else:
+                print(double_hash_slot)
                 return double_hash_slot
         except:
             pass
@@ -116,7 +124,8 @@ class HashMap(MapBase):
             #print(self._table)
             print('Finding Next Slot')
             #before finding next slot we need to to check if keys are the same 
-            if key in self:
+            #if key in self:
+            if key == self._table[slot].key:
                 #means override already exists
                 print('Overriding')
                 self._table[slot] = _MapEntry(key,value)
@@ -191,7 +200,7 @@ class HashMap(MapBase):
 
     def __len__(self):
         '''
-            THIS IS O(1) constan
+            THIS IS O(1) constant
         '''
         #return self._count
         #this has O(N)
@@ -232,23 +241,33 @@ class HashMap(MapBase):
 
 
 if __name__ == '__main__':
-    h = HashMap()
-    from random import randint
-    for _ in range(1000):
-        key = randint(0,100)
-        h.add(key,'value{}'.format(key))
+    hash = HashMap()
 
-    print('Length of the item', len(h))  
+    hash.add('man',34)
+    hash.add('person',23)
+    hash.add('women',674)
+    hash.add('camera',5)
+    hash.add('tv',89)
+
+    for i in hash:
+        print('{}: {}'.format(i.key,i.value))
     
-    #print(h[5])
-    #print(h.remove(5))
-    print('That in that')
-    print(5 in h)
- 
-    h[4] = 'magetsi'
-    print(h)
-    print(len(h))
-    print(5 in h)
+    print(len(hash))
+
+    print(hash.remove('tv'))
+    print(hash.remove('women'))
+    print(hash.remove('man'))
+    hash['women'] = 566
+
+    for i in hash:
+        print('{}: {}'.format(i.key,i.value))
+    print(len(hash))
+
+    print(hash.get('women'))
+
+
+
+    
 
   
     
