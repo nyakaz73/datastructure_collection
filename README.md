@@ -190,7 +190,9 @@ print(77 in linked) #Returns False 77 is not in Linked
 ```
 
 ### Pull Requests
-I Welcome and i encourage all Pull Requests.
+I Welcome and i encourage all Pull Requests. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 ## Created and Maintained by
 * Author: [Tafadzwa Lameck Nyamukapa](https://github.com/nyakaz73) :

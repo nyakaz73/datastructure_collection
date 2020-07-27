@@ -54,7 +54,7 @@ class HashMap(MapBase):
         return 1 + hash % (len(self._table) - 2)
 
     def _double_hashing(self,slot,step):
-        print('Double Hashing')
+        #print('Double Hashing')
         return (slot + step) % len(self._table)
  
     def _find_slot(self,key, isInsert):
@@ -64,18 +64,18 @@ class HashMap(MapBase):
         while self._table[slot] is not None:
             #When Inserting
             if isInsert and (self._table[slot] is self._EMPTY):
-                print('Inserting on Empty Location--------------------------------------------------------------------------------')     
+                #print('Inserting on Empty Location--------------------------------------------------------------------------------')     
                 return slot
             #When Searching
             elif not isInsert and (self._table[slot] is not self._EMPTY and self._table[slot].key == key ):
-                print('If keys are the same just override the data')
-                print(self._table[slot].key)
-                print('The key is',key)
+                #print('If keys are the same just override the data')
+                #print(self._table[slot].key)
+                #print('The key is',key)
                 return slot
             #When Probing find the next available slot
             else :
-                print('Probing...')
-                print('Searching for slot for key {}'.format(key))
+                #print('Probing...')
+                #print('Searching for slot for key {}'.format(key))
                 #return self._double_hashing(slot,step)
                 return self._recursive_slot_search(slot,step,key)
                 
@@ -84,11 +84,11 @@ class HashMap(MapBase):
     def _recursive_slot_search(self, slot,step,key):
         try:
             double_hash_slot = self._double_hashing(slot,step)
-            print('Dobule hash slot found is',double_hash_slot)
+            #print('Dobule hash slot found is',double_hash_slot)
             #print(self._table[double_hash_slot].key)
             #print(self._table[double_hash_slot] is not None)
             if self._table[double_hash_slot] is not None:
-                print('Continue Searching... slot found is {} with key {}'.format(double_hash_slot, self._table[double_hash_slot].key))
+                #print('Continue Searching... slot found is {} with key {}'.format(double_hash_slot, self._table[double_hash_slot].key))
                 '''
                 means the key already exists so override data or return this slot when deleting
                 if key == list(self._table[double_hash_slot])[0]:
@@ -97,7 +97,7 @@ class HashMap(MapBase):
                     return double_hash_slot
                 return self._recursive_slot_search(double_hash_slot,step,key)
             else:
-                print(double_hash_slot)
+                #print(double_hash_slot)
                 return double_hash_slot
         except:
             pass
@@ -112,7 +112,7 @@ class HashMap(MapBase):
     def add(self,key, value):
         slot =  self._hash(key)  #Linear Hashing
         if self._table[slot] is None:
-            print('The prev slot is {} for key {}'.format(slot,key))
+            #print('The prev slot is {} for key {}'.format(slot,key))
             self._table[slot] = _MapEntry(key,value)
             self._count+=1
             #if self._count == self._maxCount:
@@ -120,18 +120,18 @@ class HashMap(MapBase):
             return True
         elif self._table[slot] is not None:
             #Prob for the next prob
-            print('The next slot is {} for key  {} '.format(slot,key))
+            #print('The next slot is {} for key  {} '.format(slot,key))
             #print(self._table)
-            print('Finding Next Slot')
+            #print('Finding Next Slot')
             #before finding next slot we need to to check if keys are the same 
             #if key in self:
             if key == self._table[slot].key:
                 #means override already exists
-                print('Overriding')
+                #print('Overriding')
                 self._table[slot] = _MapEntry(key,value)
             else:
                 slot = self._find_slot(key,True)
-                print('Slot Found is {} for key {} '.format(slot,key))
+                #print('Slot Found is {} for key {} '.format(slot,key))
                 self._table[slot] = _MapEntry(key,value)
                 self._count+=1
                 if self._count == self._maxCount:
@@ -154,11 +154,11 @@ class HashMap(MapBase):
     
     #Rebuidling the HashTable
     def _rehash(self):
-        print('Rehashing')
+        #print('Rehashing')
         original_table = self._table
         newSize = len(self._table) * 2 + 1 #keep it prime
         self._table = [None] * newSize
-        print('New table size')
+        #print('New table size')
         #print(self._table)
         #Modify the Size attributes
         self._count = 0
@@ -168,18 +168,18 @@ class HashMap(MapBase):
         for data in original_table:
             if data is not None and data is not self._EMPTY:
                 slot = self._find_slot(key, True)
-                print('Rehashed slot is {} for key {} for slot {}'.format(slot,key,slot))
-                print('Key Value pair {}, {}'.format(data.key,data.value))
+                #print('Rehashed slot is {} for key {} for slot {}'.format(slot,key,slot))
+                #print('Key Value pair {}, {}'.format(data.key,data.value))
                 self._table[slot] = _MapEntry(data.key,data.value) #assigning the key value pair
                 self._count += 1
         
-        print(self._table)
+        #print(self._table)
 
     def __getitem__(self,key):
         slot = self._find_slot(key,False)
         if self._table[slot] is not None:
             if self._table[slot].key == key:
-                print('The value items is {}'.format(self._table[slot].value))
+                #print('The value items is {}'.format(self._table[slot].value))
                 return self._table[slot].value
         raise KeyError('Error: Undefined Index' + repr(key))
 

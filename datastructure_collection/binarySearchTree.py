@@ -46,7 +46,7 @@ class BinarySearchTree:
     
     def _recursive_search(self,key,current_node):
         if key == current_node.key:
-            print('Key Found {} with value {}'.format(key,current_node.value))
+            #print('Key Found {} with value {}'.format(key,current_node.value))
             return current_node.value
         elif key < current_node.key and current_node.left_child is not None:
             return self._recursive_search(key,current_node.left_child)
