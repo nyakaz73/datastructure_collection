@@ -4,8 +4,8 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="datastructure_collection-nyakaz73", # Replace with your own username
-    version="0.0.1",
+    name="datastructure_collection", # Replace with your own username
+    version="0.0.3",
     author="Tafadzwa L Nyamukapa",
     author_email="tafadzwalnyamukapa@gmail.com",
     description="A DataStructure collection written in Pyhton which helps developers and big-data scientists in implementing fast and efficient algorithms",
