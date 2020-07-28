@@ -84,7 +84,7 @@ print(len(tree)) #this returns a length of 3 since the Banana node was removed
 
 ```
 ## Hash Map
-The [HashMap]() is the most commonly used data structure in solving  big data and maping problems. In most datastructure collection ,searching is the most important operation, and as such we need to do it fast and efficiently. Unilike most datastructures like Lists, Trees which are based on on key comparison when searching for a target, the [Hashmap]() uses a concept of **hashing** the keys upon searching which run in constant time O(1) to locate an index of a specific key.
+The [HashMap](https://pypi.org/project/datastructure-collection/) is the most commonly used data structure in solving  big data and maping problems. In most datastructure collection ,searching is the most important operation, and as such we need to do it fast and efficiently. Unilike most datastructures like Lists, Trees which are based on on key comparison when searching for a target, the [Hashmap]() uses a concept of **hashing** the keys upon searching which run in constant time O(1) to locate an index of a specific key.
 I have used the concept of **double hashing** in implemnenting the hashing algorithm and **closed hashing/open addressing** for **Probing** . The hashing algorithm is as follows:
 ```python
 '''
@@ -101,7 +101,7 @@ I have used the concept of **double hashing** in implemnenting the hashing algor
 ```
 Double hashing reduces primary and secondary clusture thus reducing collisions.
 
-The table below shows the operations and time complexities of a [HashMap]()
+The table below shows the operations and time complexities of a [HashMap](https://pypi.org/project/datastructure-collection/)
 
 | Operation                | Best Case     |  Worst Case   |  
 | -------------            |:-------------:|:-------------:|
@@ -116,7 +116,7 @@ The table below shows the operations and time complexities of a [HashMap]()
 | x in map                 | O(1)          | O(N)          |
 | traversal                | O(N)          | O(N)          |
 
-As noted from the table above a [HashMap]() one one of the strongest data structure in implementing a map, as the fundamental core oprations ie **__getitem__**,
+As noted from the table above a [HashMap](https://pypi.org/project/datastructure-collection/) one one of the strongest data structure in implementing a map, as the fundamental core oprations ie **__getitem__**,
 **__setitem__**,**__deltitem__**, runs at constant time at Best Case. The Hash Map worst case run-time can always be enhanced by implementing **SortedTableMap** which improves the Worst Case O(N) to O(logN), which i hope to add the datastructure in the future.
 
 
@@ -124,38 +124,39 @@ As noted from the table above a [HashMap]() one one of the strongest data struct
 ```python
 hash = HashMap()
 
-    hash.add('man',34)
-    hash.add('person',23)
-    hash.add('women',674)
-    hash.add('camera',5)
-    hash.add('tv',89)
+hash.add('man',34)
+hash.add('person',23)
+hash.add('women',674)
+hash.add('camera',5)
+hash.add('tv',89)
 
-    for i in hash:
-        print('{}: {}'.format(i.key,i.value)) #prints the key value paris
-    
-    print(len(hash)) #returns length 5
+for i in hash:
+    print('{}: {}'.format(i.key,i.value)) #prints the key value paris
 
-    print(hash.remove('tv'))
-    print(hash.remove('women'))
-    print(hash.remove('man'))
-    hash['women'] = 566
+print(len(hash)) #returns length 5
 
-    for i in hash:
-        print('{}: {}'.format(i.key,i.value))
-    print(len(hash)) #returns lenth 3 
-    print(hash.get('women')) # returns 566
+print(hash.remove('tv'))
+print(hash.remove('women'))
+print(hash.remove('man'))
+hash['women'] = 566
+
+for i in hash:
+    print('{}: {}'.format(i.key,i.value))
+print(len(hash)) #returns lenth 3 
+print(hash.get('women')) # returns 566
 
 ```
 
 ## Linked List
-One might ask why implement a  linked List datastructure if we already have a list in Python. Insertions and Deletions operation in a List requires items to be shifted to make a room or close the gap. This howver can be time consuming especially for large data. The add operator in a Linked List requires O(1) time where as the Pyhton List requires O(N)
+One might ask why implement a  [LinkedList](https://pypi.org/project/datastructure-collection/) datastructure if we already have a list in Python. Insertions and Deletions operation in a List requires items to be shifted to make a room or close the gap. This howver can be time consuming especially for large data. The add operator in a Linked List requires O(1) time where as the Pyhton List requires O(N)
 
-The table below shows the operations and time complexities of a [LinkedList]()
+The table below shows the operations and time complexities of a [LinkedList](https://pypi.org/project/datastructure-collection/)
+
 | Operation                | Pyhton List   |  Linked List  |  
 | -------------            |:-------------:|:-------------:|
 | linked = LinkedList()    | O(1)          | O(1)          |
 |                          |               |               |
-| linked.add(value)        | N/A           | O(1)          |
+| linked.add(value)        | NA            | O(1)          |
 | linked.append(value)     | O(N)          | O(N)          |  
 | linked.remove(value)     | O(1)          | O(N)          |
 | linked.isEmpty()         | O(1)          | O(1)          |
