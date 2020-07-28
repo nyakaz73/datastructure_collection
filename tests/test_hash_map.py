@@ -14,8 +14,10 @@ class TestHashMap(unittest.TestCase):
             map.add(i,i)
         self.assertEqual(len(map), 100)
         map[56] = "book"
+        map['man'] = 'John'
         self.assertEqual(map.get(56), "book")
         self.assertEqual(map[56], "book")
+        self.assertEqual(len(map), 101)
 
     def test_remove(self):
         map = HashMap()
