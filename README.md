@@ -1,5 +1,5 @@
 # Python datastructure_collection
-A DataStructure collection written in Python which helps developers and big-data scientists in implementing fast and efficient algorithms.
+A Data structure collection package written in Python which helps developers and big-data scientists in implementing fast and efficient algorithms.
 
 ### Show some :heart: and :star: to the repo to support the project
 
